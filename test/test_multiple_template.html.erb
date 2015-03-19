@@ -1,0 +1,35 @@
+<h2 style="text-align: left;">Head of Post:</h2>
+<p style="text-align: left;">
+  <%= row.head %> <%= row.title %>
+</p>
+<h3 style="text-align: left;">
+  Street Address:
+</h3>
+<p style="text-align: left;">
+  <%= row.address_line_one %>
+</p>
+<p style="text-align: left;">
+  <%= row.address_line_two %>
+</p>
+<h3 style="text-align: left;">
+  Phone Number:
+</h3>
+<p style="text-align: left;">
+  <%= row.phone %>
+</p>
+<h3 style="text-align: left;">
+  Fax Number:
+</h3>
+<p style="text-align: left;">
+  <%= row.fax %>
+</p>
+<h3 style="text-align: left;">
+  Email:
+</h3>
+<p style="text-align: left;">
+  <a href="mailto:<%= row.email %>"><%= row.email %></a>
+</p>
+<h3 style="text-align: left;">Website:</h3>
+<p style="text-align: left;">
+  <a href="<%= row.website %>"><%= row.website %></a>
+</p>

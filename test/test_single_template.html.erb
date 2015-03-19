@@ -1,0 +1,7 @@
+<div class="foobar">
+  <% @list.each do |row| %>
+    <div style="display:inline-block; background-color:<%= row.bg_color %>">
+      <%= row.content %>
+    </div>
+  <% end %>
+</div>
