@@ -1,0 +1,11 @@
+<div class="row">
+  <% list.each do |row| %>
+    <div class="span2">
+      <a href="http://www.houstontx.gov/motia/<%= row.country %>">
+        <h3><%= row.country %></h3>
+        <img src="images/<%= row.country %>.png"><br>
+      </a>
+    </div>
+  <% end %>
+</div>
+
