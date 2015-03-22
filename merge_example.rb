@@ -19,4 +19,5 @@ def run_test_multiple
   end
 end
 
-run_test_multiple
+# run_test_multiple
+run_test_single

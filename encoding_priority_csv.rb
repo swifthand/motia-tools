@@ -32,7 +32,7 @@ class EncodingPriorityCSV
   def open_csv(csv_path, **csv_options)
     csv_options = csv_defaults.merge(csv_options)
     file_with_encoding(csv_path, csv_options)
-  rescue
+  rescue Errno::ENOENT => exc
     :not_found
   end
 
@@ -47,7 +47,11 @@ class EncodingPriorityCSV
         false
       end
     end
-    CSV.new(open(url, "r:#{valid_encoding}"), csv_options)
+    if valid_encoding
+      CSV.new(open(url, "r:#{valid_encoding}"), csv_options)
+    else
+      :no_encoding_selected
+    end
   end
 
 end
