@@ -5,6 +5,7 @@ class EncodingPriorityCSV
     str.nil? ? nil : str.strip
   }
 
+  # Unsophistocated method of converting punctuation to underscores and condense.
   ParameterizeConversion = ->(str) {
     return nil if str.nil?
     str.strip.downcase

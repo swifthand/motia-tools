@@ -18,6 +18,18 @@ private ########################################################################
   class RowWrapper < Struct.new(:row)
     def render(template)
       template.result(binding)
+    rescue SyntaxError => exc
+      MotiaTools.logger.error(
+        "Syntax error encountered in the template. Details below.\n"\
+        "#{exc.message}")
+    rescue NoMethodError => exc
+      method_name = exc.message.match(/^undefined method `(?<method_name>\w+)'/)[:method_name]
+      MotiaTools.logger.error(
+        "NoMethodError while merging data into template. "\
+        "The problem was with '#{method_name}'.\n"\
+        "Check that the loaded header names match the '#{method_name}' code in the template.\n"\
+        "Technical details:\n"\
+        "#{exc.message}")
     end
   end
 

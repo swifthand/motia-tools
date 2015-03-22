@@ -30,10 +30,18 @@ Beginning a header with punctuation or a number may cause an error.
 ### TemplateMergeSingle
 The `TemplateMergeSingle` class will provide a template with a `list` variable containing all the CSV rows, and render the output to a single file.
 
+Example usage:
+```ruby
+template    = 'test/test_single_template.html.erb'
+data_source = 'test/test_single_data.csv'
+merge       = TemplateMergeSingle.new(template, data_source)
+merge.render_to_file('test/test_single_output_flag.html')
+```
+
 ### TemplateMergeMultiple
 The `TemplateMergeMultiple` class will render the template multiple times, and produce a new output file each time. Specifically, one render per row in the CSV. The data in a given row is provided via a `row` variable to the template.
 
-Unlike `TemplateMergeSingle`, the method `render_to_file` does not take a single file path as an argument, but instead requires a block, which must return a unique filename for each row. The block is given the row number and row data itself to allow flexibility in naming. 
+Unlike `TemplateMergeSingle`, the method `render_to_file` does not take a single file path as an argument, but instead requires a block, which must return a unique filename for each row. The block is given the row number and row data itself to allow flexibility in naming.
 
 Examples:
 
