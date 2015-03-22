@@ -15,9 +15,10 @@ def run_test_multiple
   data_source = 'test/test_multiple_data.csv'
   merge       = TemplateMergeMultiple.new(template, data_source)
   merge.render_to_file do |row, row_number|
-    "test/#{row.country}.html"
+    "test/test_multiple_output_line_#{row_number}.html"
   end
 end
 
-# run_test_multiple
+run_test_multiple
 run_test_single
+
